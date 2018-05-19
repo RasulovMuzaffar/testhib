@@ -13,10 +13,11 @@ public class HibernateUtil {
         try {
             // Создает сессию с hibernate.cfg.xml
             Configuration cfg = new Configuration().configure();
-//            cfg.addAnnotatedClass(Class.forName("model.bean.User"));
+//            cfg.addAnnotatedClass(Class.forName("model.bean.Users"));
 //            System.out.println(cfg.getProperties());
-            StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties());
-            return cfg.buildSessionFactory(builder.build());
+//            StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties());
+//            return cfg.buildSessionFactory(builder.build());
+            return new Configuration().configure().buildSessionFactory();
         }
         catch (Throwable ex) {
             System.err.println("Initial SessionFactory creation failed." + ex);

@@ -1,6 +1,6 @@
 package model.dao;
 
-import model.bean.Role;
+import model.bean.Roles;
 import model.config.HibernateUtil;
 import org.hibernate.Session;
 
@@ -12,11 +12,11 @@ public class RoleDaoImpl implements RoleDao {
     Session session = HibernateUtil.getSessionFactory().openSession();
 
     @Override
-    public List<Role> findAll() {
-        List<Role> list = new ArrayList<>();
+    public List<Roles> findAll() {
+        List<Roles> list = new ArrayList<>();
         try {
             session.beginTransaction();
-            Query query = session.createQuery("from Role", Role.class);
+            Query query = session.createQuery("from Roles", Roles.class);
             list = query.getResultList();
             session.getTransaction().commit();
             return list;
@@ -26,11 +26,11 @@ public class RoleDaoImpl implements RoleDao {
     }
 
     @Override
-    public boolean saveRole(Role role) {
+    public boolean saveRole(Roles roles) {
         try {
             session.beginTransaction();
 
-            session.save(role);
+            session.save(roles);
             session.getTransaction().commit();
         } catch (Exception e) {
             return false;

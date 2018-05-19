@@ -1,18 +1,16 @@
-import model.bean.Role;
-import model.bean.User;
-import model.config.HibernateUtil;
+import model.bean.Roles;
+import model.bean.Users;
 import model.dao.RoleDao;
 import model.dao.RoleDaoImpl;
 import model.dao.UserDao;
 import model.dao.UserDaoImpl;
-import org.hibernate.Session;
 import org.junit.Test;
 
 public class TestClass {
     @Test
     public void addUser(){
         UserDao u = new UserDaoImpl();
-        u.saveUser(new User("Ivan", "Ivanov"));
+        u.saveUser(new Users("Ivan", "Ivanov"));
     }
 
     @Test
@@ -23,7 +21,8 @@ public class TestClass {
     @Test
     public void addRole(){
         RoleDao r = new RoleDaoImpl();
-//        r.saveRole(new Role("admin", new User("Ivan","Ivanov")));
+//        r.saveRole(new Roles("admin", new Users("Ivan","Ivanov")));
+        r.saveRole(new Roles("manager"));
     }
 
     @Test

@@ -1,11 +1,11 @@
 package model.dao;
 
-import model.bean.Role;
+import model.bean.Roles;
 
 import java.util.List;
 
 public interface RoleDao {
 
-    List<Role> findAll();
-    boolean saveRole(Role role);
+    List<Roles> findAll();
+    boolean saveRole(Roles roles);
 }

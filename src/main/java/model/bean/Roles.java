@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "role")
-public class Role implements Serializable{
+public class Roles implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -14,12 +14,17 @@ public class Role implements Serializable{
     private String role;
 
     @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
-    private List<User> users;
+    private List<Users> users;
 
-    public Role() {
+
+    public Roles() {
     }
 
-    public Role(String role, List<User> users) {
+    public Roles(String role) {
+        this.role = role;
+    }
+
+    public Roles(String role, List<Users> users) {
         this.role = role;
         this.users = users;
     }
@@ -40,17 +45,17 @@ public class Role implements Serializable{
         this.role = role;
     }
 
-    public List<User> getUsers() {
+    public List<Users> getUsers() {
         return users;
     }
 
-    public void setUsers(List<User> users) {
+    public void setUsers(List<Users> users) {
         this.users = users;
     }
 
     @Override
     public String toString() {
-        return "Role{" +
+        return "Roles{" +
                 "id=" + id +
                 ", role='" + role + '\'' +
                 ", users=" + users +

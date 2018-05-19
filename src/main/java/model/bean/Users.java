@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "user")
-public class User implements Serializable {
+public class Users implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -18,17 +18,17 @@ public class User implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "id_role", referencedColumnName = "id")
-    private Role role;
+    private Roles role;
 
-    public User() {
+    public Users() {
     }
 
-    public User(String firstName, String lastName) {
+    public Users(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public User(String firstName, String lastName, Role role) {
+    public Users(String firstName, String lastName, Roles role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.role = role;
@@ -58,21 +58,21 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
-    public Role getRole() {
+    public Roles getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRole(Roles roles) {
+        this.role = roles;
     }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Users{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", role=" + role +
+                ", roles=" + role +
                 '}';
     }
 }

@@ -13,10 +13,10 @@
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
-        <!--<property name="packagesToScan">model.bean.User</property>-->
+        <!--<property name="packagesToScan">model.bean.Userss</property>-->
 
 
-        <mapping class="model.bean.User"/>
-        <mapping class="model.bean.Role"/>
+        <mapping class="model.bean.Users"/>
+        <mapping class="model.bean.Roles"/>
     </session-factory>
 </hibernate-configuration>

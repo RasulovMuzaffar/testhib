@@ -1,6 +1,6 @@
 package model.dao;
 
-import model.bean.User;
+import model.bean.Users;
 import model.config.HibernateUtil;
 import org.hibernate.Session;
 
@@ -12,11 +12,11 @@ public class UserDaoImpl implements UserDao {
     Session session = HibernateUtil.getSessionFactory().openSession();
 
     @Override
-    public List<User> findAll() {
-        List<User> list = new ArrayList<>();
+    public List<Users> findAll() {
+        List<Users> list = new ArrayList<>();
         try {
             session.beginTransaction();
-            Query query = session.createQuery("from User", User.class);
+            Query query = session.createQuery("from Users", Users.class);
             list = query.getResultList();
             session.getTransaction().commit();
             return list;
@@ -26,11 +26,11 @@ public class UserDaoImpl implements UserDao {
 
     }
 
-    public boolean saveUser(User user) {
+    public boolean saveUser(Users users) {
         try {
             session.beginTransaction();
 
-            session.save(user);
+            session.save(users);
             session.getTransaction().commit();
         } catch (Exception e) {
             return false;
